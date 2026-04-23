@@ -1,0 +1,771 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sparkpages — Описателна Статистика</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet" />
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.5.0/css/all.min.css" />
+
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.2/dist/chart.umd.min.js"></script>
+
+  <!-- KaTeX for math rendering -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.css" />
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/katex.min.js"></script>
+  <script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.9/dist/contrib/auto-render.min.js"
+          onload="renderMathInElement(document.body, {delimiters:[{left:'$$',right:'$$',display:true},{left:'$',right:'$',display:false}]})"></script>
+
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+<!-- ═══════════════════════  NAVBAR  ═══════════════════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <div class="nav-logo">
+      <span class="logo-spark">✦</span>
+      <span class="logo-text">Sparkpages</span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#hero">Начало</a></li>
+      <li><a href="#section-tendency">Централна тенденция</a></li>
+      <li><a href="#section-dispersion">Разсейване</a></li>
+      <li><a href="#section-shape">Форма</a></li>
+      <li><a href="#section-quiz">Тест</a></li>
+    </ul>
+    <button class="nav-burger" id="navBurger" aria-label="Меню">
+      <i class="fa-solid fa-bars"></i>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════════════════  HERO  ═══════════════════════ -->
+<header class="hero" id="hero">
+  <div class="hero-bg-anim"></div>
+  <div class="hero-particles" id="heroParticles"></div>
+  <div class="hero-content">
+    <div class="hero-badge"><i class="fa-solid fa-chart-bar"></i> Интерактивен урок</div>
+    <h1 class="hero-title">
+      Описателна<br /><span class="gradient-text">Статистика</span>
+    </h1>
+    <p class="hero-subtitle">
+      Мерки на централната тенденция · Разсейване · Форма на разпределение
+    </p>
+    <div class="hero-cta">
+      <a href="#section-tendency" class="btn btn-primary">
+        <i class="fa-solid fa-play"></i> Започни урока
+      </a>
+      <a href="#section-quiz" class="btn btn-outline">
+        <i class="fa-solid fa-circle-question"></i> Провери знанията
+      </a>
+    </div>
+    <div class="hero-stats">
+      <div class="hstat"><span class="hstat-n">3</span><span class="hstat-l">Основни теми</span></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><span class="hstat-n">10+</span><span class="hstat-l">Интерактивни елементи</span></div>
+      <div class="hstat-div"></div>
+      <div class="hstat"><span class="hstat-n">∞</span><span class="hstat-l">Практически примери</span></div>
+    </div>
+  </div>
+  <div class="hero-scroll-hint">
+    <span>Скролни надолу</span>
+    <i class="fa-solid fa-chevron-down bounce"></i>
+  </div>
+</header>
+
+<!-- ═══════════════════════  INTRO CARDS  ═══════════════════════ -->
+<section class="intro-section">
+  <div class="container">
+    <div class="section-label">Какво ще научиш?</div>
+    <div class="intro-cards">
+      <div class="intro-card" data-color="blue">
+        <div class="ic-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <h3>Централна тенденция</h3>
+        <p>Средна стойност, медиана и мода — намиране на „центъра" на данните.</p>
+      </div>
+      <div class="intro-card" data-color="purple">
+        <div class="ic-icon"><i class="fa-solid fa-arrows-left-right"></i></div>
+        <h3>Разсейване</h3>
+        <p>Дисперсия, стандартно отклонение, обхват — колко „разпръснати" са данните.</p>
+      </div>
+      <div class="intro-card" data-color="pink">
+        <div class="ic-icon"><i class="fa-solid fa-wave-square"></i></div>
+        <h3>Форма на разпределение</h3>
+        <p>Асиметрия и ексцес — дали данните следват нормалното разпределение.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  VIDEO SECTION  ═══════════════════════ -->
+<section class="video-section">
+  <div class="container">
+    <div class="section-label">Видео въведение</div>
+    <h2 class="section-title">Описателна статистика — преглед</h2>
+    <p class="section-desc">Гледай това кратко въведение в описателната статистика преди да продължиш с урока.</p>
+    <div class="video-wrapper">
+      <iframe
+        src="https://www.youtube.com/embed/SzZ6GpcfoQY"
+        title="Описателна статистика"
+        frameborder="0"
+        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+        allowfullscreen>
+      </iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 1 — ЦЕНТРАЛНА ТЕНДЕНЦИЯ
+═══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-tendency">
+  <div class="container">
+    <div class="part-badge part-badge--blue">Част 1</div>
+    <h2 class="section-title">Мерки на централната тенденция</h2>
+    <p class="section-desc">
+      Мерките на централната тенденция описват „типичната" или „централната" стойност на едно разпределение. Те отговарят на въпроса: <em>„Около коя стойност са групирани данните?"</em>
+    </p>
+
+    <!-- Tabs -->
+    <div class="tabs" id="tabs-tendency">
+      <button class="tab-btn active" data-tab="mean">Средна стойност</button>
+      <button class="tab-btn" data-tab="median">Медиана</button>
+      <button class="tab-btn" data-tab="mode">Мода</button>
+    </div>
+
+    <!-- Mean -->
+    <div class="tab-content active" id="tab-mean">
+      <div class="content-grid">
+        <div class="content-text">
+          <h3><i class="fa-solid fa-x"></i> Средна аритметична стойност (Mean)</h3>
+          <p>Средната аритметична стойност е сумата от всички стойности, разделена на броя им. Тя е най-широко използваната мярка на централната тенденция.</p>
+          <div class="formula-box">
+            <div class="formula-label">Формула</div>
+            $$\bar{x} = \frac{1}{n}\sum_{i=1}^{n} x_i = \frac{x_1 + x_2 + \cdots + x_n}{n}$$
+          </div>
+          <div class="info-list">
+            <div class="info-item good"><i class="fa-solid fa-check"></i><span><strong>Предимства:</strong> Взима предвид всички стойности; математически удобна.</span></div>
+            <div class="info-item bad"><i class="fa-solid fa-xmark"></i><span><strong>Недостатъци:</strong> Чувствителна към екстремни стойности (outliers).</span></div>
+          </div>
+          <div class="example-box">
+            <div class="ex-label"><i class="fa-solid fa-lightbulb"></i> Пример</div>
+            <p>Оценки: <strong>5, 6, 4, 7, 8</strong></p>
+            <p>$\bar{x} = \dfrac{5+6+4+7+8}{5} = \dfrac{30}{5} = \mathbf{6}$</p>
+          </div>
+        </div>
+        <div class="content-visual">
+          <div class="chart-wrapper" style="height:320px">
+            <canvas id="meanChart"></canvas>
+          </div>
+          <p class="chart-caption">Средната стойност (червена линия) се „изтегля" от екстремните стойности.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Median -->
+    <div class="tab-content" id="tab-median">
+      <div class="content-grid">
+        <div class="content-text">
+          <h3><i class="fa-solid fa-align-center"></i> Медиана (Median)</h3>
+          <p>Медианата е средната стойност при наредените данни. Тя разделя разпределението на две равни половини.</p>
+          <div class="formula-box">
+            <div class="formula-label">Формула</div>
+            <p>При нечетен брой $n$: $Me = x_{\frac{n+1}{2}}$</p>
+            <p>При четен брой $n$: $Me = \dfrac{x_{\frac{n}{2}} + x_{\frac{n}{2}+1}}{2}$</p>
+          </div>
+          <div class="info-list">
+            <div class="info-item good"><i class="fa-solid fa-check"></i><span><strong>Предимства:</strong> Нечувствителна към outliers; подходяща за скосени разпределения.</span></div>
+            <div class="info-item bad"><i class="fa-solid fa-xmark"></i><span><strong>Недостатъци:</strong> Не взима предвид всички стойности.</span></div>
+          </div>
+          <div class="example-box">
+            <div class="ex-label"><i class="fa-solid fa-lightbulb"></i> Пример</div>
+            <p>Данни: <strong>3, 7, 2, 9, 5</strong> → Наредени: <strong>2, 3, 5, 7, 9</strong></p>
+            <p>$Me = 5$ (средният елемент)</p>
+          </div>
+        </div>
+        <div class="content-visual">
+          <div class="median-visual" id="medianVisual">
+            <div class="mv-title">Интерактивна медиана</div>
+            <div class="mv-numbers" id="mvNumbers"></div>
+            <div class="mv-highlight" id="mvHighlight"></div>
+            <div class="mv-result" id="mvResult"></div>
+            <div class="mv-controls">
+              <input type="text" id="mvInput" placeholder="Въведи числа (напр. 3,7,2,9,5)" />
+              <button class="btn btn-small" id="mvBtn">Изчисли</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Mode -->
+    <div class="tab-content" id="tab-mode">
+      <div class="content-grid">
+        <div class="content-text">
+          <h3><i class="fa-solid fa-crown"></i> Мода (Mode)</h3>
+          <p>Модата е най-честата стойност в набора от данни. Може да има повече от една мода (бимодално или мултимодално разпределение).</p>
+          <div class="formula-box">
+            <div class="formula-label">Определение</div>
+            <p>$Mo = $ стойността с <strong>най-висока честота</strong></p>
+          </div>
+          <div class="info-list">
+            <div class="info-item good"><i class="fa-solid fa-check"></i><span><strong>Предимства:</strong> Единствена мярка приложима към категорийни данни.</span></div>
+            <div class="info-item bad"><i class="fa-solid fa-xmark"></i><span><strong>Недостатъци:</strong> Може да е нестабилна; не е единствена.</span></div>
+          </div>
+          <div class="example-box">
+            <div class="ex-label"><i class="fa-solid fa-lightbulb"></i> Пример</div>
+            <p>Данни: <strong>2, 4, 4, 6, 8, 4, 10</strong></p>
+            <p>$Mo = 4$ (среща се 3 пъти)</p>
+          </div>
+        </div>
+        <div class="content-visual">
+          <div class="chart-wrapper" style="height:320px">
+            <canvas id="modeChart"></canvas>
+          </div>
+          <p class="chart-caption">Честота на стойностите — модата е най-високата колона.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- Comparison Box -->
+    <div class="comparison-box">
+      <h3><i class="fa-solid fa-scale-balanced"></i> Сравнение на мерките</h3>
+      <div class="comparison-grid">
+        <div class="comp-item">
+          <div class="comp-title" style="color:var(--blue)">Средна стойност</div>
+          <div class="comp-tag">Симетрични данни</div>
+          <div class="comp-tag">Без outliers</div>
+          <div class="comp-tag">Количествени данни</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-title" style="color:var(--purple)">Медиана</div>
+          <div class="comp-tag">Скосени данни</div>
+          <div class="comp-tag">С outliers</div>
+          <div class="comp-tag">Ординални данни</div>
+        </div>
+        <div class="comp-item">
+          <div class="comp-title" style="color:var(--pink)">Мода</div>
+          <div class="comp-tag">Категорийни данни</div>
+          <div class="comp-tag">Номинални данни</div>
+          <div class="comp-tag">Честота</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Calculator -->
+    <div class="calculator-box" id="calcTendency">
+      <div class="calc-header">
+        <i class="fa-solid fa-calculator"></i>
+        <h3>Калкулатор — Централна тенденция</h3>
+      </div>
+      <p>Въведи числа, разделени със запетаи, и изчисли автоматично всички мерки:</p>
+      <div class="calc-input-row">
+        <input type="text" id="tendencyInput" placeholder="напр. 5, 8, 3, 9, 7, 4, 6" class="calc-input" />
+        <button class="btn btn-primary" id="tendencyCalcBtn">
+          <i class="fa-solid fa-equals"></i> Изчисли
+        </button>
+      </div>
+      <div class="calc-results" id="tendencyResults" style="display:none">
+        <div class="calc-result-card" id="resN"><span class="cr-label">n (брой)</span><span class="cr-value" id="vN">—</span></div>
+        <div class="calc-result-card" id="resMean"><span class="cr-label">Средна стойност $\bar{x}$</span><span class="cr-value" id="vMean">—</span></div>
+        <div class="calc-result-card" id="resMedian"><span class="cr-label">Медиана $Me$</span><span class="cr-value" id="vMedian">—</span></div>
+        <div class="calc-result-card" id="resMod"><span class="cr-label">Мода $Mo$</span><span class="cr-value" id="vMode">—</span></div>
+      </div>
+      <div class="calc-chart-wrapper" id="tendencyChartWrap" style="display:none;height:260px">
+        <canvas id="tendencyChart"></canvas>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 2 — РАЗСЕЙВАНЕ
+═══════════════════════════════════════════════════ -->
+<section class="content-section alt-bg" id="section-dispersion">
+  <div class="container">
+    <div class="part-badge part-badge--purple">Част 2</div>
+    <h2 class="section-title">Мерки на разсейването</h2>
+    <p class="section-desc">
+      Мерките на разсейването показват колко са „разпръснати" или „разпределени" стойностите около центъра. Две извадки могат да имат еднаква средна стойност, но много различно разсейване.
+    </p>
+
+    <div class="dispersion-visual-intro">
+      <div class="chart-wrapper" style="height:280px">
+        <canvas id="dispCompChart"></canvas>
+      </div>
+      <p class="chart-caption">Двете групи имат еднаква средна стойност (μ=5), но различно разсейване!</p>
+    </div>
+
+    <!-- Accordion for dispersion measures -->
+    <div class="accordion" id="accordionDispersion">
+
+      <div class="acc-item">
+        <button class="acc-header" data-acc="range">
+          <span><i class="fa-solid fa-ruler-horizontal"></i> Обхват (Range)</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body" id="acc-range">
+          <div class="content-grid">
+            <div class="content-text">
+              <p>Обхватът е разликата между максималната и минималната стойност. Той е най-простата мярка на разсейването.</p>
+              <div class="formula-box">
+                $$R = x_{max} - x_{min}$$
+              </div>
+              <div class="info-list">
+                <div class="info-item good"><i class="fa-solid fa-check"></i><span>Лесен за изчисляване и интерпретиране.</span></div>
+                <div class="info-item bad"><i class="fa-solid fa-xmark"></i><span>Изключително чувствителен към outliers.</span></div>
+              </div>
+              <div class="example-box">
+                <div class="ex-label"><i class="fa-solid fa-lightbulb"></i> Пример</div>
+                <p>Температури: <strong>12, 18, 15, 22, 9</strong></p>
+                <p>$R = 22 - 9 = \mathbf{13}°C$</p>
+              </div>
+            </div>
+            <div class="content-visual" style="display:flex;align-items:center;justify-content:center;">
+              <div class="range-diagram" id="rangeDiagram">
+                <div class="rd-line"></div>
+                <div class="rd-min">9</div>
+                <div class="rd-max">22</div>
+                <div class="rd-arrow"></div>
+                <div class="rd-label">R = 13</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-header" data-acc="variance">
+          <span><i class="fa-solid fa-chart-area"></i> Дисперсия (Variance)</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body" id="acc-variance">
+          <div class="content-grid">
+            <div class="content-text">
+              <p>Дисперсията е средното квадратично отклонение от средната стойност. Тя измерва средното разстояние на стойностите от средната.</p>
+              <div class="formula-box">
+                <div class="formula-label">Генерална дисперсия (σ²)</div>
+                $$\sigma^2 = \frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2$$
+                <div class="formula-label" style="margin-top:12px">Извадкова дисперсия (s²)</div>
+                $$s^2 = \frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2$$
+              </div>
+              <div class="info-callout">
+                <i class="fa-solid fa-info-circle"></i>
+                <span>Делим на <strong>n−1</strong> (поправка на Бесел) при извадкова дисперсия, за да получим незместена оценка.</span>
+              </div>
+            </div>
+            <div class="content-visual">
+              <div class="chart-wrapper" style="height:280px">
+                <canvas id="varianceChart"></canvas>
+              </div>
+              <p class="chart-caption">Квадратичните отклонения от средната стойност.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-header active" data-acc="std">
+          <span><i class="fa-solid fa-sigma"></i> Стандартно отклонение (Std. Dev.)</span>
+          <i class="fa-solid fa-chevron-down acc-arrow open"></i>
+        </button>
+        <div class="acc-body open" id="acc-std">
+          <div class="content-grid">
+            <div class="content-text">
+              <p>Стандартното отклонение е квадратният корен от дисперсията. Изразено е в <strong>същите мерни единици</strong> като данните, което го прави по-интерпретируемо.</p>
+              <div class="formula-box">
+                $$\sigma = \sqrt{\sigma^2} = \sqrt{\frac{1}{N}\sum_{i=1}^{N}(x_i - \mu)^2}$$
+                $$s = \sqrt{s^2} = \sqrt{\frac{1}{n-1}\sum_{i=1}^{n}(x_i - \bar{x})^2}$$
+              </div>
+              <div class="rule68">
+                <div class="rule68-title">Правило 68–95–99.7 (Емпирично правило)</div>
+                <div class="rule68-bars">
+                  <div class="r68-bar r68-99"><span>99.7%</span></div>
+                  <div class="r68-bar r68-95"><span>95%</span></div>
+                  <div class="r68-bar r68-68"><span>68%</span></div>
+                  <div class="r68-center"><span>μ</span></div>
+                </div>
+                <div class="rule68-labels">
+                  <span>μ±3σ</span><span>μ±2σ</span><span>μ±σ</span>
+                </div>
+              </div>
+            </div>
+            <div class="content-visual">
+              <div class="chart-wrapper" style="height:280px">
+                <canvas id="stdChart"></canvas>
+              </div>
+              <p class="chart-caption">Нормалното разпределение с отбелязани зони на σ.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-header" data-acc="cv">
+          <span><i class="fa-solid fa-percent"></i> Коефициент на вариация (CV)</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body" id="acc-cv">
+          <div class="content-grid">
+            <div class="content-text">
+              <p>Коефициентът на вариация изразява стандартното отклонение като процент от средната стойност. Позволява сравнение на разсейването между различни скали.</p>
+              <div class="formula-box">
+                $$CV = \frac{\sigma}{\mu} \times 100\%$$
+              </div>
+              <div class="cv-guide">
+                <div class="cv-row"><div class="cv-bar" style="width:20%;background:var(--green)"></div><span>&lt;15% — Слабо вариране</span></div>
+                <div class="cv-row"><div class="cv-bar" style="width:50%;background:var(--yellow)"></div><span>15–35% — Умерено вариране</span></div>
+                <div class="cv-row"><div class="cv-bar" style="width:100%;background:var(--red)"></div><span>&gt;35% — Силно вариране</span></div>
+              </div>
+            </div>
+            <div class="content-visual">
+              <div class="cv-example-box">
+                <div class="cv-ex-title">Пример: Сравнение на два класа</div>
+                <table class="stats-table">
+                  <thead><tr><th>Клас</th><th>$\bar{x}$</th><th>$\sigma$</th><th>CV</th></tr></thead>
+                  <tbody>
+                    <tr><td>А</td><td>50</td><td>5</td><td class="highlight-green">10%</td></tr>
+                    <tr><td>Б</td><td>80</td><td>20</td><td class="highlight-red">25%</td></tr>
+                  </tbody>
+                </table>
+                <p style="margin-top:12px;font-size:0.9em">Клас А е по-хомогенен въпреки по-малката средна оценка.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="acc-item">
+        <button class="acc-header" data-acc="iqr">
+          <span><i class="fa-solid fa-box"></i> Интерквартилен обхват (IQR)</span>
+          <i class="fa-solid fa-chevron-down acc-arrow"></i>
+        </button>
+        <div class="acc-body" id="acc-iqr">
+          <div class="content-grid">
+            <div class="content-text">
+              <p>IQR е разликата между третия и първия квартил. Той обхваща средните 50% от данните и е устойчив на outliers.</p>
+              <div class="formula-box">
+                $$IQR = Q_3 - Q_1$$
+              </div>
+              <p>Стойностите извън $[Q_1 - 1.5 \cdot IQR,\; Q_3 + 1.5 \cdot IQR]$ се считат за <strong>outliers</strong>.</p>
+            </div>
+            <div class="content-visual">
+              <div class="chart-wrapper" style="height:280px">
+                <canvas id="boxplotChart"></canvas>
+              </div>
+              <p class="chart-caption">Box plot — визуализация на квартилите и IQR.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <!-- Dispersion Calculator -->
+    <div class="calculator-box" id="calcDispersion">
+      <div class="calc-header">
+        <i class="fa-solid fa-calculator"></i>
+        <h3>Калкулатор — Разсейване</h3>
+      </div>
+      <p>Въведи числа и изчисли всички мерки на разсейването:</p>
+      <div class="calc-input-row">
+        <input type="text" id="dispersionInput" placeholder="напр. 10, 20, 30, 25, 15" class="calc-input" />
+        <button class="btn btn-primary" id="dispCalcBtn">
+          <i class="fa-solid fa-equals"></i> Изчисли
+        </button>
+      </div>
+      <div class="calc-results" id="dispersionResults" style="display:none">
+        <div class="calc-result-card"><span class="cr-label">Обхват $R$</span><span class="cr-value" id="dRange">—</span></div>
+        <div class="calc-result-card"><span class="cr-label">Дисперсия $s^2$</span><span class="cr-value" id="dVariance">—</span></div>
+        <div class="calc-result-card"><span class="cr-label">Стд. откл. $s$</span><span class="cr-value" id="dStd">—</span></div>
+        <div class="calc-result-card"><span class="cr-label">CV</span><span class="cr-value" id="dCV">—</span></div>
+        <div class="calc-result-card"><span class="cr-label">$Q_1$</span><span class="cr-value" id="dQ1">—</span></div>
+        <div class="calc-result-card"><span class="cr-label">$Q_3$</span><span class="cr-value" id="dQ3">—</span></div>
+        <div class="calc-result-card"><span class="cr-label">IQR</span><span class="cr-value" id="dIQR">—</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════════════
+     PART 3 — ФОРМА НА РАЗПРЕДЕЛЕНИЕ
+═══════════════════════════════════════════════════ -->
+<section class="content-section" id="section-shape">
+  <div class="container">
+    <div class="part-badge part-badge--pink">Част 3</div>
+    <h2 class="section-title">Мерки на отклонение от нормалното разпределение</h2>
+    <p class="section-desc">
+      Тези мерки описват <strong>формата</strong> на разпределението — дали е симетрично, скосено или с остри/плоски върхове в сравнение с нормалното разпределение.
+    </p>
+
+    <!-- Normal Distribution Intro -->
+    <div class="normal-intro-box">
+      <div class="ni-left">
+        <h3><i class="fa-solid fa-bell"></i> Нормалното разпределение — „Камбаната"</h3>
+        <p>Нормалното разпределение (Гаусово) е симетрично, камбановидно разпределение. То служи като <strong>референция</strong> при измерване на формата.</p>
+        <ul class="ni-list">
+          <li><i class="fa-solid fa-arrow-right"></i> Симетрично около средната стойност</li>
+          <li><i class="fa-solid fa-arrow-right"></i> Mean = Median = Mode</li>
+          <li><i class="fa-solid fa-arrow-right"></i> Асиметрия = 0, Ексцес = 0</li>
+        </ul>
+      </div>
+      <div class="ni-right">
+        <div class="chart-wrapper" style="height:250px">
+          <canvas id="normalChart"></canvas>
+        </div>
+      </div>
+    </div>
+
+    <!-- Skewness -->
+    <div class="shape-block">
+      <h3 class="shape-title"><i class="fa-solid fa-angle-double-right"></i> Асиметрия (Skewness)</h3>
+      <p>Асиметрията измерва доколко разпределението е <strong>несиметрично</strong> (скосено) спрямо нормалното.</p>
+
+      <div class="skewness-cards">
+        <div class="skew-card skew-neg">
+          <div class="skew-chart-wrap" style="height:180px"><canvas id="skewNegChart"></canvas></div>
+          <div class="skew-info">
+            <div class="skew-title">Лява асиметрия</div>
+            <div class="skew-formula">$\gamma_1 < 0$</div>
+            <p>Опашката е вляво.<br/>Mean &lt; Median &lt; Mode</p>
+          </div>
+        </div>
+        <div class="skew-card skew-zero">
+          <div class="skew-chart-wrap" style="height:180px"><canvas id="skewZeroChart"></canvas></div>
+          <div class="skew-info">
+            <div class="skew-title">Симетрично</div>
+            <div class="skew-formula">$\gamma_1 = 0$</div>
+            <p>Нормално разпределение.<br/>Mean = Median = Mode</p>
+          </div>
+        </div>
+        <div class="skew-card skew-pos">
+          <div class="skew-chart-wrap" style="height:180px"><canvas id="skewPosChart"></canvas></div>
+          <div class="skew-info">
+            <div class="skew-title">Дясна асиметрия</div>
+            <div class="skew-formula">$\gamma_1 > 0$</div>
+            <p>Опашката е вдясно.<br/>Mean &gt; Median &gt; Mode</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="formula-box" style="margin-top:24px">
+        <div class="formula-label">Коефициент на асиметрия на Пиърсън</div>
+        $$\gamma_1 = \frac{1}{n}\sum_{i=1}^{n}\left(\frac{x_i - \bar{x}}{s}\right)^3 = \frac{\mu_3}{s^3}$$
+        <div class="formula-label" style="margin-top:12px">Опростена формула на Пиърсън</div>
+        $$\gamma_1 \approx \frac{3(\bar{x} - Me)}{s}$$
+      </div>
+    </div>
+
+    <!-- Kurtosis -->
+    <div class="shape-block">
+      <h3 class="shape-title"><i class="fa-solid fa-wave-square"></i> Ексцес / Куртозис (Kurtosis)</h3>
+      <p>Ексцесът измерва <strong>„остротата"</strong> или <strong>„плоскостта"</strong> на разпределението в сравнение с нормалното.</p>
+
+      <div class="kurtosis-cards">
+        <div class="kurt-card">
+          <div class="chart-wrapper" style="height:180px"><canvas id="kurtLeptoChart"></canvas></div>
+          <div class="kurt-title">Лептокуртично</div>
+          <div class="kurt-formula">$\gamma_2 > 0$</div>
+          <p>По-остро от нормалното. Повече данни в опашките.</p>
+          <div class="kurt-badge kurt-pos">Положителен ексцес</div>
+        </div>
+        <div class="kurt-card kurt-normal">
+          <div class="chart-wrapper" style="height:180px"><canvas id="kurtMesoChart"></canvas></div>
+          <div class="kurt-title">Мезокуртично</div>
+          <div class="kurt-formula">$\gamma_2 = 0$</div>
+          <p>Нормално разпределение. Стандартна форма.</p>
+          <div class="kurt-badge kurt-zero">Нулев ексцес</div>
+        </div>
+        <div class="kurt-card">
+          <div class="chart-wrapper" style="height:180px"><canvas id="kurtPlatyChart"></canvas></div>
+          <div class="kurt-title">Платикуртично</div>
+          <div class="kurt-formula">$\gamma_2 < 0$</div>
+          <p>По-плоско от нормалното. По-малко данни в опашките.</p>
+          <div class="kurt-badge kurt-neg">Отрицателен ексцес</div>
+        </div>
+      </div>
+
+      <div class="formula-box" style="margin-top:24px">
+        <div class="formula-label">Коефициент на ексцес (Excess Kurtosis)</div>
+        $$\gamma_2 = \frac{\mu_4}{s^4} - 3 = \frac{\frac{1}{n}\sum_{i=1}^{n}(x_i - \bar{x})^4}{s^4} - 3$$
+        <div class="info-callout">
+          <i class="fa-solid fa-info-circle"></i>
+          <span>Изваждаме 3, защото нормалното разпределение има куртозис = 3 (тоест <strong>excess kurtosis = 0</strong>).</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Interactive Shape Explorer -->
+    <div class="shape-explorer">
+      <div class="se-header">
+        <i class="fa-solid fa-sliders"></i>
+        <h3>Интерактивен изследовател на формата</h3>
+      </div>
+      <p>Използвай плъзгачите, за да видиш как асиметрията и ексцесът променят формата на разпределението.</p>
+      <div class="se-controls">
+        <div class="se-control">
+          <label>Асиметрия: <span id="skewVal">0.0</span></label>
+          <input type="range" id="skewSlider" min="-2" max="2" step="0.1" value="0" class="slider" />
+        </div>
+        <div class="se-control">
+          <label>Ексцес: <span id="kurtVal">0.0</span></label>
+          <input type="range" id="kurtSlider" min="-1.5" max="3" step="0.1" value="0" class="slider" />
+        </div>
+      </div>
+      <div class="chart-wrapper" style="height:300px">
+        <canvas id="shapeExplorerChart"></canvas>
+      </div>
+      <div class="se-stats-row">
+        <div class="se-stat"><span class="se-sl">Асиметрия</span><span class="se-sv" id="seSkew">0.00</span></div>
+        <div class="se-stat"><span class="se-sl">Ексцес</span><span class="se-sv" id="seKurt">0.00</span></div>
+        <div class="se-stat"><span class="se-sl">Форма</span><span class="se-sv" id="seShape">Нормална</span></div>
+      </div>
+    </div>
+
+    <!-- Summary Table -->
+    <div class="summary-table-wrap">
+      <h3><i class="fa-solid fa-table"></i> Обобщена таблица — Форма на разпределение</h3>
+      <table class="stats-table big-table">
+        <thead>
+          <tr>
+            <th>Мярка</th>
+            <th>Символ</th>
+            <th>Стойност &lt; 0</th>
+            <th>Стойност = 0</th>
+            <th>Стойност &gt; 0</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Асиметрия</strong></td>
+            <td>$\gamma_1$</td>
+            <td class="left-skew">Лява опашка</td>
+            <td class="sym">Симетрично</td>
+            <td class="right-skew">Дясна опашка</td>
+          </tr>
+          <tr>
+            <td><strong>Ексцес</strong></td>
+            <td>$\gamma_2$</td>
+            <td class="platy">Платикуртично (плоско)</td>
+            <td class="meso">Мезокуртично (нормално)</td>
+            <td class="lepto">Лептокуртично (остро)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</section>
+
+<!-- ═══════════════════════  QUIZ  ═══════════════════════ -->
+<section class="quiz-section" id="section-quiz">
+  <div class="container">
+    <div class="part-badge part-badge--gold">Тест</div>
+    <h2 class="section-title">Провери своите знания</h2>
+    <p class="section-desc">Отговори на 6 въпроса и провери разбирането си на описателната статистика.</p>
+
+    <div class="quiz-container" id="quizContainer">
+      <div class="quiz-progress-bar"><div class="quiz-progress-fill" id="quizProgress"></div></div>
+      <div class="quiz-counter" id="quizCounter">Въпрос 1 от 6</div>
+      <div class="quiz-question" id="quizQuestion"></div>
+      <div class="quiz-options" id="quizOptions"></div>
+      <div class="quiz-feedback" id="quizFeedback" style="display:none"></div>
+      <button class="btn btn-primary quiz-next" id="quizNext" style="display:none">
+        Следващ въпрос <i class="fa-solid fa-arrow-right"></i>
+      </button>
+    </div>
+
+    <div class="quiz-result" id="quizResult" style="display:none">
+      <div class="qr-icon" id="qrIcon"></div>
+      <h3 id="qrTitle"></h3>
+      <div class="qr-score" id="qrScore"></div>
+      <p id="qrMsg"></p>
+      <button class="btn btn-primary" id="quizRestart">
+        <i class="fa-solid fa-rotate-left"></i> Опитай отново
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  CHEAT SHEET  ═══════════════════════ -->
+<section class="cheatsheet-section">
+  <div class="container">
+    <div class="section-label">Справочник</div>
+    <h2 class="section-title">Формули накратко</h2>
+    <div class="cheatsheet-grid">
+      <div class="cs-card cs-blue">
+        <div class="cs-icon"><i class="fa-solid fa-bullseye"></i></div>
+        <h4>Средна стойност</h4>
+        <div class="cs-formula">$\bar{x} = \dfrac{\sum x_i}{n}$</div>
+      </div>
+      <div class="cs-card cs-blue">
+        <div class="cs-icon"><i class="fa-solid fa-align-center"></i></div>
+        <h4>Медиана</h4>
+        <div class="cs-formula">$Me = x_{\frac{n+1}{2}}$</div>
+      </div>
+      <div class="cs-card cs-purple">
+        <div class="cs-icon"><i class="fa-solid fa-ruler"></i></div>
+        <h4>Дисперсия</h4>
+        <div class="cs-formula">$s^2 = \dfrac{\sum(x_i-\bar{x})^2}{n-1}$</div>
+      </div>
+      <div class="cs-card cs-purple">
+        <div class="cs-icon"><i class="fa-solid fa-sigma"></i></div>
+        <h4>Стд. отклонение</h4>
+        <div class="cs-formula">$s = \sqrt{s^2}$</div>
+      </div>
+      <div class="cs-card cs-purple">
+        <div class="cs-icon"><i class="fa-solid fa-percent"></i></div>
+        <h4>Коеф. на вариация</h4>
+        <div class="cs-formula">$CV = \dfrac{s}{\bar{x}} \times 100\%$</div>
+      </div>
+      <div class="cs-card cs-pink">
+        <div class="cs-icon"><i class="fa-solid fa-angle-right"></i></div>
+        <h4>Асиметрия</h4>
+        <div class="cs-formula">$\gamma_1 = \dfrac{\mu_3}{s^3}$</div>
+      </div>
+      <div class="cs-card cs-pink">
+        <div class="cs-icon"><i class="fa-solid fa-wave-square"></i></div>
+        <h4>Ексцес</h4>
+        <div class="cs-formula">$\gamma_2 = \dfrac{\mu_4}{s^4} - 3$</div>
+      </div>
+      <div class="cs-card cs-green">
+        <div class="cs-icon"><i class="fa-solid fa-box"></i></div>
+        <h4>IQR</h4>
+        <div class="cs-formula">$IQR = Q_3 - Q_1$</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════  FOOTER  ═══════════════════════ -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-inner">
+      <div class="footer-brand">
+        <span class="logo-spark">✦</span>
+        <span class="logo-text">Sparkpages</span>
+      </div>
+      <p class="footer-desc">Интерактивен урок по Описателна Статистика</p>
+      <div class="footer-topics">
+        <span class="ft">Централна тенденция</span>
+        <span class="ft">Разсейване</span>
+        <span class="ft">Асиметрия</span>
+        <span class="ft">Ексцес</span>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>© 2025 Sparkpages · Споделяй свободно ✦</p>
+    </div>
+  </div>
+</footer>
+
+<script src="js/main.js"></script>
+</body>
+</html>
